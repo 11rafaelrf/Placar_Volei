@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 207 90% 88%;
+    --foreground: 0 0% 20%;
+    
+    /* Mario-inspired palette */
+    --mario-red: 359 84% 52%;
+    --luigi-green: 122 58% 49%;
+    --coin-gold: 43 100% 50%;
+    --sky-blue: 217 93% 67%;
+    --dark: 0 0% 20%;
+
+    /* Original shadcn colors, preserved but not used much */
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --primary: 207 90% 54%;
+    --primary-foreground: 211 100% 99%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --ring: 20 14.3% 4.1%;
+    --radius: 0.5rem;
+  }
+}
+
+/* Custom classes for pixel art styling */
+@layer components {
+  .font-pixel {
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  .img-pixelated {
+    image-rendering: pixelated;
+  }
+  
+  .pixel-border {
+    @apply border-4 border-black;
+    box-shadow: 
+      0 4px 0 0 #000, 
+      4px 0 0 0 #000, 
+      -4px 0 0 0 #000, 
+      0 -4px 0 0 #000;
+  }
+  
+  .bg-mario-red {
+    @apply bg-[hsl(var(--mario-red))];
+  }
+  
+  .bg-luigi-green {
+    @apply bg-[hsl(var(--luigi-green))];
+  }
+  
+  .bg-coin-gold {
+    @apply bg-[hsl(var(--coin-gold))];
+  }
+  
+  .bg-sky-blue {
+    @apply bg-[hsl(var(--sky-blue))];
+  }
+  
+  .bg-dark {
+    @apply bg-[hsl(var(--dark))];
+  }
+  
+  .text-mario-red {
+    @apply text-[hsl(var(--mario-red))];
+  }
+  
+  .text-luigi-green {
+    @apply text-[hsl(var(--luigi-green))];
+  }
+  
+  .text-coin-gold {
+    @apply text-[hsl(var(--coin-gold))];
+  }
+  
+  .text-sky-blue {
+    @apply text-[hsl(var(--sky-blue))];
+  }
+  
+  .text-dark {
+    @apply text-[hsl(var(--dark))];
+  }
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+body {
+  @apply font-pixel antialiased bg-sky-blue text-foreground overflow-x-hidden;
+  image-rendering: pixelated;
+}
